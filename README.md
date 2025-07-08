@@ -1,2 +1,12 @@
 # comments-app
-This is a simple project as my introduction to Next.js  A simple dashboard app, that show 3 pages: Login, Dashboard, and Add Form Page.
+
+> This is a simple project as my introduction to Next.js
+
+A simple CRUD dashboard app thats shows comment data from [JSONPlaceholder](https://jsonplaceholder.typicode.com/comments).
+App features:
+- Login
+- Add new comment
+- Delete comment
+- Logout
+
+Thank you.
