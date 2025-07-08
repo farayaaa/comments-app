@@ -21,3 +21,14 @@ body {
     height: 50px;
 }
 
+@media (max-width: 600px) {
+    .table-actions {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .table-actions div, .table-actions div>* {
+        width: 100%;
+        margin: 0;
+    }
+}

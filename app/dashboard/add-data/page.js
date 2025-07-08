@@ -1,30 +1,29 @@
 'use client'
 
-import { useRouter, useSearchParams  } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
 
 export default function AddData() {
-
-    const router = useRouter();
-    const searchParams = useSearchParams();
 
     const handleSubmition = async (event) => {
 
         event.preventDefault();
 
-        const returnTo = searchParams.get('returnTo');
-        const newId = searchParams.get('newId');
         const formData = {
-            "id":newId,
             "name":event.target.inputName.value,
             "email":event.target.inputEmail.value,
             "body":event.target.inputComment.value
         }
 
-        if (returnTo) {
-            router.push(decodeURIComponent(returnTo), undefined, {state: formData});
+        await fetch('/api/comments', {
+            method: 'POST',
+            body: JSON.stringify({'data': formData, 'flag': 'single'}),
+        });
+
+        if (formData) {
+            redirect('/dashboard')
         } else {
-            router.push('/');
+            redirect('/');
         }
     };
 
